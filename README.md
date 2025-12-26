@@ -2,7 +2,7 @@
 快速体验各种 AI Application，无需搭建环境，无需配置，无需部署，即可体验AI Application的功能。
 
 # list
-- [✅] llamaIndex - 极简 RAG 功能，支持本地各种常用格式数据，填写自己的 API Key 即可体验
+- [✅] llamaIndex_toy_rag - 极简 RAG 功能，支持本地各种常用格式数据，填写自己的 API Key 即可体验
 - [✅] rag_factory（动态完善ing） - 基于 Qwen 模型、faiss 向量数据库的 RAG 框架，填写自己的 API Key 即可体验
   - 基于`内容哈希`判断文件是否已被处理过，`避免重复处理`
   - `意图识别`来判断用户的查询意图，根据意图来确定大模型生成还是根据本地数据生成
