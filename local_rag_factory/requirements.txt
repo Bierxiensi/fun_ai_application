@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+dashscope
+langchain_text_splitters
+langchain_community
+transformers
+pypdfium2
+pandas
+python-docx
+faiss-gpu
+openpyxl

@@ -1,1 +1,4 @@
 .env
+*.pyc
+.conda
+local_rag_factory/models/Qwen*
