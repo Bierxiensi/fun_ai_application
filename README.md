@@ -10,3 +10,5 @@
 - [✅] local_rag_factory - 基于 rag_factory 实现的本地 RAG 框架，无需填写 API Key，即可体验
   - 模型目录：`local_rag_factory/models/Qwen-4B-Instruct`
   - embeddings 模型目录：`local_rag_factory/models/Qwen-Embedding-0.6B`
+- comfyUI API server - 基于 comfyUI 实现的 API 服务器，支持调用 comfyUI 的功能，目前支持以下模型
+  - z_image_turbo
