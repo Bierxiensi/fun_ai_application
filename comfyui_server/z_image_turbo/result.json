@@ -1,0 +1,185 @@
+{
+  "prompt": [
+    1,
+    "e3169a7b-bc22-40c3-945f-d363802945d0",
+    {
+      "39": {
+        "class_type": "CLIPLoader",
+        "inputs": {
+          "clip_name": "qwen_3_4b.safetensors",
+          "type": "lumina2",
+          "device": "default"
+        }
+      },
+      "40": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ae.safetensors"
+        }
+      },
+      "46": {
+        "class_type": "UNETLoader",
+        "inputs": {
+          "unet_name": "z_image_turbo_bf16.safetensors",
+          "weight_dtype": "default"
+        }
+      },
+      "48": {
+        "class_type": "LoraLoaderModelOnly",
+        "inputs": {
+          "model": [
+            "46",
+            0
+          ],
+          "lora_name": "pixel_art_style_z_image_turbo.safetensors",
+          "strength_model": 1.0
+        }
+      },
+      "47": {
+        "class_type": "ModelSamplingAuraFlow",
+        "inputs": {
+          "model": [
+            "48",
+            0
+          ],
+          "shift": 3.0
+        }
+      },
+      "41": {
+        "class_type": "EmptySD3LatentImage",
+        "inputs": {
+          "width": 1024,
+          "height": 1024,
+          "batch_size": 1
+        }
+      },
+      "45": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "39",
+            0
+          ],
+          "text": "a cyberpunk city at night, neon lights"
+        }
+      },
+      "42": {
+        "class_type": "ConditioningZeroOut",
+        "inputs": {
+          "conditioning": [
+            "45",
+            0
+          ]
+        }
+      },
+      "44": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "47",
+            0
+          ],
+          "positive": [
+            "45",
+            0
+          ],
+          "negative": [
+            "42",
+            0
+          ],
+          "latent_image": [
+            "41",
+            0
+          ],
+          "seed": 533303727624653,
+          "steps": 9,
+          "cfg": 1.0,
+          "sampler_name": "res_multistep",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "43": {
+        "class_type": "VAEDecode",
+        "inputs": {
+          "samples": [
+            "44",
+            0
+          ],
+          "vae": [
+            "40",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "43",
+            0
+          ],
+          "filename_prefix": "z-image"
+        }
+      }
+    },
+    {
+      "create_time": 1767014344695
+    },
+    [
+      "9"
+    ]
+  ],
+  "outputs": {
+    "9": {
+      "images": [
+        {
+          "filename": "z-image_00043_.png",
+          "subfolder": "",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "e3169a7b-bc22-40c3-945f-d363802945d0",
+          "timestamp": 1767014344698
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [
+            "39",
+            "40",
+            "46",
+            "41"
+          ],
+          "prompt_id": "e3169a7b-bc22-40c3-945f-d363802945d0",
+          "timestamp": 1767014344802
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "e3169a7b-bc22-40c3-945f-d363802945d0",
+          "timestamp": 1767014682562
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "9": {
+      "node_id": "9",
+      "display_node": "9",
+      "parent_node": null,
+      "real_node_id": "9"
+    }
+  }
+}
